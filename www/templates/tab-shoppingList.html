@@ -1,0 +1,16 @@
+<ion-view title="Shopping">
+    <ion-content class="has-header padding">
+        <h1>Shopping List</h1>
+
+        <ul class="list">
+
+            <li class="item item-checkbox" ng-repeat="item in shoppingList">
+                <label class="checkbox">
+                    <input type="checkbox">
+                </label>
+                {{item.desc}} qty: {{item.qty}}
+            </li>
+        </ul>
+
+    </ion-content>
+</ion-view>

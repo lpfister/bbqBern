@@ -1,0 +1,51 @@
+<ion-view title="Organize">
+    <ion-content class="has-header padding">
+
+        <div ng-show="!organizing">
+            <h1>You want to organize a grill !?</h1>
+
+            <p>Just click on the button below to orgoniaze a grill today</p>
+
+            <p>An email will be sent to the zueri-west and people will place th
+                their orders till 11h20, at this time this page will have a computed
+                list for the grocery shopping
+            </p>
+
+            <br/>
+            <button class="button button-block" ng-click="startGrill()">Let's Grill today!</button>
+        </div>
+        <div ng-show="organizing">
+            <h1>We grill today yeah!</h1>
+
+            <!-- Participants -->
+            <div class="list">
+                <div class="item item-divider">
+                    Participants
+                </div>
+                <ion-item ng-repeat="item in particpantsList" item="item">
+                    {{item.name}}
+                </ion-item>
+            </div>
+            <!-- Go to shopping list -->
+            <a class="button button-block" href="#/tab/shoppingList">Get my shopping list</a>
+        </div>
+
+    </ion-content>
+</ion-view>
+
+
+<script id="my-modal.html" type="text/ng-template">
+    '
+    <div class="modal">'+
+        '
+        <ion-header-bar title="My Modal Title"></ion-header-bar>
+        '+
+        '
+        <ion-content>'+
+            ' Hello!'+
+            '
+        </ion-content>
+        '+
+        '
+    </div>'
+</script>
