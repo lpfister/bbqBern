@@ -46,7 +46,14 @@ angular.module('starter.services', [])
             getNbrParticipant: function(){
 
             //FIXME to implement
+                var deferred = $q.defer();
 
+                $http.get(baseUrl + 'getNbrParticipants').success(function (data) {
+                    deferred.resolve(data);
+                }).error(function(){
+                        deferred.reject('The server is down');
+                    });
+                return deferred.promise;
 
             },
 
@@ -121,11 +128,41 @@ angular.module('starter.services', [])
                 return deferred.promise;
             },
 
-            joinBBQ: function(postData){
+            joinBBQ: function(food,name){
                 var deferred = $q.defer();
-                var tmp = {loic:postData};
+                var tmp = {food:food,name:name};
                 $http.post(baseUrl + 'joinBBQ',tmp).success(function (data) {
 
+                    deferred.resolve(data);
+                }).error(function(){
+                        deferred.reject('The server is down');
+                    });
+                return deferred.promise;
+            },
+            // --- Start the bbq
+            startBBQ: function(){
+                var deferred = $q.defer();
+                $http.post(baseUrl + 'startBBQ').success(function (data) {
+                    deferred.resolve(data);
+                }).error(function(){
+                        deferred.reject('The server is down');
+                    });
+                return deferred.promise;
+            },
+
+               // --- Stop the bbq
+            stopBBQ: function(){
+                var deferred = $q.defer();
+                $http.post(baseUrl + 'stopBBQ').success(function (data) {
+                    deferred.resolve(data);
+                }).error(function(){
+                        deferred.reject('The server is down');
+                    });
+                return deferred.promise;
+            },
+            getBBQStarted: function(){
+                var deferred = $q.defer();
+                $http.get(baseUrl + 'getBBQStarted.json').success(function (data) {
                     deferred.resolve(data);
                 }).error(function(){
                         deferred.reject('The server is down');

@@ -2,6 +2,11 @@
     <ion-content class="has-header padding">
         <h1>Shopping List</h1>
 
+        <button class="button button-block">
+            Start shopping
+        </button>
+        <p>(it will disable the inscription)</p>
+
         <ul class="list">
 
             <li class="item item-checkbox" ng-repeat="item in shoppingList">
@@ -10,6 +15,33 @@
                 </label>
                 {{item.desc}} qty: {{item.qty}}
             </li>
+            <li class="item item-checkbox">
+                <label class="checkbox">
+                    <input type="checkbox">
+                </label>
+                Salad (and sauce if needed) qty: {{salad}}gr
+            </li>
+            <li class="item item-checkbox">
+                <label class="checkbox">
+                    <input type="checkbox">
+                </label>
+                Bread qty: {{bread}}gr
+            </li>
+            <li class="item item-checkbox">
+                <label class="checkbox">
+                    <input type="checkbox">
+                </label>
+                Chips qty: {{chips}}gr
+            </li>
+            <label class="item item-input">
+                <span class="input-label">Total paid</span>
+                <input type="number" ng-model="info.price" placeholder="Total paid at Migros!">
+            </label>
+            <li class="item">
+                Price per person: {{info.price}} /  {{nbrPerson}} =  <b> {{pricePP}}</b>
+
+            </li>
+
         </ul>
 
     </ion-content>
