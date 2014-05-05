@@ -27,7 +27,7 @@ angular.module('starter.services', [])
     .factory('DataServices', function ($http, $q) {
 
         // base url
-        var baseUrl = 'http://localhost:4567/';
+        var baseUrl = 'http://dry-cove-5483.herokuapp.com/';
 
 
 
